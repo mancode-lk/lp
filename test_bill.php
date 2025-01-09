@@ -58,7 +58,7 @@ $or_ids = $_REQUEST['selectedValues'];
                   <h4 style="font-size:15px;">From</h4>
               </div>
               <div class="col-6">
-                  <p style="font-size:15px;">: Lesipahasu.lk <br> NEAR MPCS, <br> 2 ND FLOOR, <br> MEENNANA, <br> GETAHATTA <br> +94 74 241 5649 </p>
+                  <p style="font-size:15px;">: Lesipahasu.lk <br> NEAR MPCS, <br> 2 ND FLOOR, <br> MEENNANA, <br> Eheloyagoda <br> 0704768044 </p>
               </div>
             </div>
             <div class="row">

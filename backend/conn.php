@@ -8,15 +8,15 @@ session_start();
 // $password = "y]yJmXvq8])G";
 // $dbname = "posfkpop_lesi_school";
 
-$servername = "localhost";
-$username = "posfkpop_new_lp_system_admin";
-$password = "hgAkjM{Kc~B$";
-$dbname = "posfkpop_new_lp_system";
-
 // $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "new_lp";
+// $username = "posfkpop_new_lp_system_admin";
+// $password = "hgAkjM{Kc~B$";
+// $dbname = "posfkpop_new_lp_system";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "new_lp";
 
 $conn = new mysqli($servername,$username,$password,$dbname);
 

@@ -224,6 +224,20 @@
 								</select>
 							</div>
 							<div class="form-group">
+							<select class="form-control js-example-basic-single select2" name="desc" id="desc">
+									<option value="">Select Item (Only If you want to change)</option>
+									<?php
+									$sql_items="SELECT * FROM tbl_items";
+									$rs_items =$conn->query($sql_items);
+									if ($rs_items->num_rows > 0) {
+											while ($row_items = $rs_items->fetch_assoc()) {
+											$item_name = $row_items['item_name'];
+									?>
+									<option value="<?= $item_name ?>"><?= $item_name ?></option>
+							<?php } } ?>
+							</select>
+							</div>
+							<div class="form-group">
 								<label for="">Select a District</label>
 								<select class="form-control js-example-basic-single select2" name="dis" onchange="selectCity(this.value)" id="district">
 									<?php

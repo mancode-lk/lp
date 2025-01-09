@@ -53,7 +53,7 @@ include '../backend/conn.php';
           <input type="text" class="form-control"  name="cus_phone" id="cus_phone" value="" placeholder="Customer Phone"> &nbsp;||&nbsp;
           <input type="text" class="form-control"  name="w_number" id="w_number" value="" placeholder="whats app number" onkeyup="getSameValue()"> &nbsp;||&nbsp;
           <select class="selectpicker" name="desc" id="desc" onchange="loadSubData(this.options[this.selectedIndex].className)">
-            <option value="">Select Item</option>
+            <option value="">Select Subject</option>
             <?php
               $sql_items="SELECT * FROM tbl_items";
               $rs_items =$conn->query($sql_items);
@@ -79,6 +79,7 @@ include '../backend/conn.php';
            <?php } } ?>
           </select>&nbsp;||&nbsp;
           <select class="selectpicker" name="page_id" id="page_id">
+            <option value="">Select Section</option>
             <?php
 
               $sqlor="SELECT * FROM tbl_pages";

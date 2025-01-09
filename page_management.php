@@ -12,7 +12,7 @@
 				<div class="content">
 					<div class="page-header">
 						<div class="page-title">
-							<h4>Page Management</h4>
+							<h4>Section Name</h4>
 						</div>
 					</div>
 					<!-- /add -->
@@ -24,8 +24,8 @@
 								<div class="col-4">
 									<form class="" action="backend/add_page.php" method="post">
 										<div class="form-group">
-											<label for="">Page Name</label>
-											<input type="text" class="form-control" placeholder="User Name" name="pagename" value="" required>
+											<label for="">Section Name</label>
+											<input type="text" class="form-control" placeholder="Section Name" name="pagename" value="" required>
 										</div>
 										<button type="submit" class="btn btn-primary btn-me2" name="button">Create</button>
 									</form>
@@ -35,7 +35,7 @@
 									<table class="table" >
 									  <thead>
 									    <tr>
-									      <th>Page Name</th>
+									      <th>Section Name</th>
 									      <th>Modification/Delete </th>
 									    </tr>
 									  </thead>
@@ -76,7 +76,7 @@
 			<div class="modal-dialog modal-dialog-centered" role="document" >
 				<div class="modal-content">
 					<div class="modal-header">
-						 <h5 class="modal-title" >Edit Page</h5>
+						 <h5 class="modal-title" >Edit Section Name</h5>
 						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
@@ -85,8 +85,8 @@
 						<form class="" action="backend/edit_page.php" method="post">
 							<input type="hidden" id="page_id" name="page_id" value="">
 							<div class="form-group">
-								<label for="">Page Name</label>
-								<input type="text" class="form-control" placeholder="Page Name" id="page_name" name="pagename" value="" required>
+								<label for="">Section Name</label>
+								<input type="text" class="form-control" placeholder="Section Name" id="page_name" name="pagename" value="" required>
 							</div>
 							<button type="submit" class="btn btn-warning btn-me2" name="button">Edit</button>
 						</form>

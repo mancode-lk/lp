@@ -55,10 +55,10 @@
           <a href="share_orders.php" ><img src="assets/img/icons/transfer1.svg" alt="img"><span> Share Orders</span> </a>
         </li>
         <li class="<?php if($pg_name=='page_management.php'){echo('active');} ?>" >
-          <a href="page_management.php" ><img src="assets/img/icons/wallet1.svg" alt="img"><span> Page Management</span> </a>
+          <a href="page_management.php" ><img src="assets/img/icons/wallet1.svg" alt="img"><span> Section Management</span> </a>
         </li>
         <li class="<?php if($pg_name=='add_items.php'){echo('active');} ?>" >
-          <a href="add_items.php" ><img src="assets/img/icons/product.svg" alt="img"><span> Items Management</span> </a>
+          <a href="add_items.php" ><img src="assets/img/icons/product.svg" alt="img"><span> Subject Management</span> </a>
         </li>
       <?php } ?>
         <li class="<?php if($pg_name=='add_city.php'){echo('active');} ?>" >

@@ -37,6 +37,7 @@
         or_st_date='$or_up_date',
         or_up_time='$or_update_time',
         del_method='$del_method',
+        or_desc='$item',
         remarks='$remark',or_status='1',pay_st='$pay_st',confirmed_date='$marked_date' WHERE or_id ='$id'";
     }
     else{
@@ -61,6 +62,7 @@
                                   or_st_date='$or_up_date',
                                   or_up_time='$or_update_time',
                                   del_method='$del_method',
+                                  or_desc='$item',
                                   remarks='$remark',or_status='1',pay_st='$pay_st',confirmed_date='$marked_date' WHERE or_id ='$id'";
     }
     else{

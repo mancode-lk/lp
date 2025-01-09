@@ -12,7 +12,7 @@
 				<div class="content">
 					<div class="page-header">
 						<div class="page-title">
-							<h4>Items Management</h4>
+							<h4>Subject Management</h4>
 						</div>
 					</div>
 					<!-- /add -->
@@ -23,10 +23,10 @@
 								<div class="col-4">
 									<form class="" action="backend/add_item.php" method="post">
 										<div class="form-group">
-											<label for="">Item Name</label>
+											<label for="">Subject Name</label>
 											<input type="text"
                                              class="form-control"
-                                             placeholder="Item Name"
+                                             placeholder="Subject Name"
                                               name="item_name" value="" required>
 										</div>
 										<button type="submit" class="btn btn-primary btn-me2" name="button">Add Item</button>
@@ -37,7 +37,7 @@
 									<table class="table" >
 									  <thead>
 									    <tr>
-									      <th>Item Name</th>
+									      <th>Subject Name</th>
 									      <th>Modification/Delete </th>
 									    </tr>
 									  </thead>
@@ -76,6 +76,7 @@
 							<div class="row">
 								<div class="col-4">
 									<form class="" action="backend/add_sub_item.php" method="post">
+										<label for="">Subject</label>
                                         <div class="form-group">
                                             <select name="item_name" class="form-control">
                                             <?php
@@ -90,13 +91,13 @@
                                             </select>
                                         </div>
 										<div class="form-group">
-											<label for="">Sub Name</label>
+											<label for="">Grade</label>
 											<input type="text"
                                              class="form-control"
                                              placeholder="sub item Name"
                                               name="sub_item_name" value="" required>
 										</div>
-										<button type="submit" class="btn btn-primary btn-me2" name="button">Add Sub Item</button>
+										<button type="submit" class="btn btn-primary btn-me2" name="button">Add Grade</button>
 									</form>
 									<br><br>
 								</div>
@@ -104,8 +105,8 @@
 									<table class="table" >
 									  <thead>
 									    <tr>
-									      <th>Item Name</th>
-                                          <th> Sub Name </th>
+									      <th>Subject Name</th>
+                                          <th> Grade </th>
 									      <th>Modification/Delete </th>
 									    </tr>
 									  </thead>
@@ -160,10 +161,10 @@
 						<form class="" action="backend/edit_item.php" method="post">
 							<input type="hidden" id="item_id" name="item_id" value="">
 							<div class="form-group">
-								<label for="">Item Name</label>
+								<label for="">Subject Name</label>
 								<input type="text" id="item_name"
 																			 class="form-control"
-																			 placeholder="Item Name"
+																			 placeholder="Subject Name"
 																				name="item_name" value="" required>
 							</div>
 							<button type="submit" class="btn btn-primary btn-sm" name="button">Edit Item</button>
@@ -177,7 +178,7 @@
 			<div class="modal-dialog modal-dialog-centered" role="document" >
 				<div class="modal-content">
 					<div class="modal-header">
-						 <h5 class="modal-title" >Edit sub Items</h5>
+						 <h5 class="modal-title" >Edit Grade</h5>
 						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
@@ -186,13 +187,13 @@
 						<form class="" action="backend/edit_sub_item.php" method="post">
 							<input type="hidden" id="sub_id" name="sub_id" value="">
 							<div class="form-group">
-								<label for="">Sub Name</label>
+								<label for="">Grade</label>
 								<input type="text"
 																			 class="form-control"
-																			 placeholder="sub item Name" id="sub_name"
+																			 placeholder="Grade" id="sub_name"
 																				name="sub_item_name" value="" required>
 							</div>
-							<button type="submit" class="btn btn-primary btn-sm" name="button">Add Sub Item</button>
+							<button type="submit" class="btn btn-primary btn-sm" name="button">Add Grade</button>
 						</form>
 					</div>
 				</div>
