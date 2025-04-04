@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+  font-family: 'Rocher';
+  src: url("https://assets.codepen.io/9632/RocherColorGX.woff2");
+}
+
+.invoice_table{
+  margin-top:0px;
+  border:1px solid #000;
+  width:100%;
+}
+.box_01{
+  border:1px solid #b5b5b5;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding:20px 20px 20px 20px;
+}
+.downloaded_mark{
+  background-color:#43194f;
+  padding:10px 10px 10px 10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-right:10px;
+  border-radius:5px;
+  color:#fff;
+}
+.printed_mark{
+  background-color:#384706;
+  padding:10px 10px 10px 10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-left:30px;
+  border-radius:5px;
+  color:#fff;
+}
+.purples {
+  font-family: 'Rocher', sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Added overflow property */
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.ranked_user_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: celebrate_glowing_border 4s infinite;
+}
+
+@keyframes celebrate_glowing_border {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #1b2105;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px #1b2105;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #1b2105;
+  }
+}
+
+.animation-container {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cup {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('../cup.png');
+  background-size: cover;
+  animation: cup-rise 4s infinite;
+}
+
+@keyframes cup-rise {
+  0% {
+    transform: translate(50%, 0) scale(0);
+  }
+  100% {
+    transform: translate(50%, -150%) scale(1);
+  }
+}
+
+.paragraph-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: justify;
+  color: #fd7e14;
+  border-left: 4px solid #fd7e14;
+  padding-left: 10px;
+}
+
+
+.s-pending{
+  font-size:12px;
+  font-weight:bold;
+  background:#6e6e6e;
+  color:#fff;
+  border-radius:4px;
+  padding:5px;
+}
+
+
+.s-delivered{
+  font-size:12px;
+  font-weight:bold;
+  background:#097969;
+  color:#fff;
+  border-radius:4px;
+  padding:5px;
+}
+
+.s-return{
+  font-size:12px;
+  font-weight:bold;
+  background:#FF5733;
+  color:#fff;
+  border-radius:4px;
+  padding:5px;
+}
+
+.s-error{
+  font-size:12px;
+  font-weight:bold;
+  background:#5c000c;
+  color:#fff;
+  border-radius:4px;
+  padding:5px;
+}
+
+#scanned_text{
+  width:50%;
+  background:#088F8F;
+  color:#fff;
+  border-radius: 3px;
+  padding:5px;
+}
+
+.del_status{
+  cursor: pointer;
+  background:#088F8F;
+  padding:10px;
+  border-radius: 3px;
+  text-align: center;
+  color:#fff;
+}
+
+.pending_status{
+    border-radius: 3px;
+  cursor: pointer;
+  background:#5F8575;
+  padding:10px;
+  text-align: center;
+  color:#fff;
+}
+
+.ret_status{
+    border-radius: 3px;
+  cursor: pointer;
+  background:#C70039;
+  padding:10px;
+  text-align: center;
+  color:#fff;
+}
+
+.orders-box{
+  font-size:15px;
+  color:#fff;
+  padding: 20px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight:500;
+}
+
+.pending{
+  background-color:#515a5a;
+}
+.confirmed{
+  background-color:#1a5276;
+}
+.delivered{
+  background-color:#117864;
+}
+.returned{
+  background-color:#943126;
+}
+
+.ob-number{
+  font-size:15px;
+  background:#17202a;
+  color:#fff;
+  font-weight:bold;
+  border-radius: 10px;
+  padding: 10px;
+}
