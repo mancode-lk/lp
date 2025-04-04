@@ -24,7 +24,7 @@ $u_level = $_SESSION['u_level'];
 			<div class="card-body">
 									<h4>Filters</h4>
 									<hr>
-			<form class="" action="main_dashboard.php" method="post">
+			<form class="" action="index.php" method="post">
 				<div class="row">
 					<div class="col-4">
 						<label for="">From Date</label>
@@ -41,7 +41,7 @@ $u_level = $_SESSION['u_level'];
 				</div>
 			</form> <br>
 			<?php if(isset($_REQUEST['from_date'])){ ?>
-				<a href="main_dashboard.php" class="btn btn-warning btn-sm"> Remove Filter </a> <br> <br>
+				<a href="index.php" class="btn btn-warning btn-sm"> Remove Filter </a> <br> <br>
 				<h4>From <span style="color:#541a5c;font-weight:bold;"><?= $from_date ?></span> To <span style="color:#104d4f;font-weight:bold;"><?= $to_date ?></span> </h4>
 			<?php } ?>
 			</div>
