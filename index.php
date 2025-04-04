@@ -16,6 +16,62 @@ $u_id = $_SESSION['uid'];
 $u_level = $_SESSION['u_level'];
  ?>
 
+ <?php
+ 	$not_marked =0; $confirmed =0; $call_back =0; $no_answer =0; $wrong_number =0;
+ 	$phone_off =0; $delivered =0; $re_arranged =0; $re_schu =0; $canceled =0;
+ 	$fail_to_del =0; $return =0;
+
+ 	if(isset($_REQUEST['from_date'])){
+ 		$sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id' AND or_date BETWEEN '$from_date' AND '$to_date'";
+ 	}
+ 	else {
+ 	 $sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id'";
+ 	}
+
+
+
+ 	$rs_orders = $conn->query($sql_orders);
+ 	if($rs_orders->num_rows > 0){
+ 		while($rowSentOrder = $rs_orders->fetch_assoc()){
+ 			if($rowSentOrder['or_status'] == 0){
+ 				$not_marked +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 1){
+ 				$confirmed +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 2){
+ 				$canceled +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 3){
+ 				$no_answer +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 4){
+ 				$phone_off +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 5){
+ 				$call_back +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 6){
+ 				$wrong_number +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 7){
+ 				$canceled +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 8){
+ 				$re_arranged +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 9){
+ 				$re_schu +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 10){
+ 				$fail_to_del +=1;
+ 			}
+ 			else if($rowSentOrder['or_status'] == 11){
+ 				$return +=1;
+ 			}
+ 		}
+ 	}
+  ?>
 
 <div class="page-wrapper">
 	<div class="content">
@@ -23,6 +79,7 @@ $u_level = $_SESSION['u_level'];
 		<div class="card">
 			<div class="card-body">
 									<h4>Filters</h4>
+									<p><?= $sql_orders ?></p>
 									<hr>
 			<form class="" action="index.php" method="post">
 				<div class="row">
@@ -47,62 +104,7 @@ $u_level = $_SESSION['u_level'];
 			</div>
 		</div>
 
-		<?php
-			$not_marked =0; $confirmed =0; $call_back =0; $no_answer =0; $wrong_number =0;
-			$phone_off =0; $delivered =0; $re_arranged =0; $re_schu =0; $canceled =0;
-			$fail_to_del =0; $return =0;
 
-			if(isset($_REQUEST['from_date'])){
-				$sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id' AND or_date BETWEEN '$from_date' AND '$to_date'";
-			}
-			else {
-			 $sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id'";
-			}
-
-
-
-			$rs_orders = $conn->query($sql_orders);
-			if($rs_orders->num_rows > 0){
-				while($rowSentOrder = $rs_orders->fetch_assoc()){
-					if($rowSentOrder['or_status'] == 0){
-						$not_marked +=1;
-					}
-					else if($rowSentOrder['or_status'] == 1){
-						$confirmed +=1;
-					}
-					else if($rowSentOrder['or_status'] == 2){
-						$canceled +=1;
-					}
-					else if($rowSentOrder['or_status'] == 3){
-						$no_answer +=1;
-					}
-					else if($rowSentOrder['or_status'] == 4){
-						$phone_off +=1;
-					}
-					else if($rowSentOrder['or_status'] == 5){
-						$call_back +=1;
-					}
-					else if($rowSentOrder['or_status'] == 6){
-						$wrong_number +=1;
-					}
-					else if($rowSentOrder['or_status'] == 7){
-						$canceled +=1;
-					}
-					else if($rowSentOrder['or_status'] == 8){
-						$re_arranged +=1;
-					}
-					else if($rowSentOrder['or_status'] == 9){
-						$re_schu +=1;
-					}
-					else if($rowSentOrder['or_status'] == 10){
-						$fail_to_del +=1;
-					}
-					else if($rowSentOrder['or_status'] == 11){
-						$return +=1;
-					}
-				}
-			}
-		 ?>
 		<div class="row">
 
 			<div class="col-lg-3 col-sm-6 col-12 d-flex">
