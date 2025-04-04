@@ -63,7 +63,7 @@ if(!isset($_SESSION['logged'])){
 <div class="header">
 
   <!-- Logo -->
-   <div class="header-left active">
+   <div class="header-center active">
 
 		 <img src="logo/lp_logo.png" style="width:90px;" alt="">
 
