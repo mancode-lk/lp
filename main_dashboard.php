@@ -19,7 +19,7 @@
 
 					<div class="card">
 						<div class="card-body">
-												<h4>Filters asf</h4>
+												<h4>Filters</h4>
 												<hr>
 						<form class="" action="main_dashboard.php" method="post">
 							<div class="row">
