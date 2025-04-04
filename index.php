@@ -22,10 +22,10 @@ $u_level = $_SESSION['u_level'];
  	$fail_to_del =0; $return =0;
 
  	if(isset($_REQUEST['from_date'])){
- 		$sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id' AND or_date BETWEEN '$from_date' AND '$to_date'";
+ 		$sql_orders = "SELECT * FROM tbl_orders WHERE s_u_id='$u_id' AND or_date BETWEEN '$from_date' AND '$to_date'";
  	}
  	else {
- 	 $sql_orders = "SELECT * FROM tbl_orders WHERE adm_uid='$u_id'";
+ 	 $sql_orders = "SELECT * FROM tbl_orders WHERE s_u_id='$u_id'";
  	}
 
 
@@ -79,7 +79,6 @@ $u_level = $_SESSION['u_level'];
 		<div class="card">
 			<div class="card-body">
 									<h4>Filters</h4>
-									<p><?= $sql_orders ?></p>
 									<hr>
 			<form class="" action="index.php" method="post">
 				<div class="row">
