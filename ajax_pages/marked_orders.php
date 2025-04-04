@@ -210,11 +210,9 @@
            }
 
            // Check user level and add condition accordingly
-           if ($u_level == 1) {
-               // No additional conditions needed for user level 1
-           } else {
+           if ($u_level != 1) {
                $sql_sent_order .= " AND s_u_id='$u_id'";
-           }
+           } 
 
            // Add ORDER BY clause
            $sql_sent_order .= " ORDER BY or_up_time DESC";
@@ -282,7 +280,7 @@
         <a onclick="load_order_details('<?= $rowSentOrders['or_id'] ?>')"><img src="assets/img/icons/eye.svg" alt="img"> </a> &nbsp; &nbsp;
         <a onclick="editOrder('<?= $rowSentOrders['or_id'] ?>')"><img src="assets/img/icons/edit.svg" alt="img"> </a> &nbsp; &nbsp;
         <?php if ($u_level == 1) { ?>
-        
+
         <a onclick="deleteOrder('<?= $rowSentOrders['or_id'] ?>')"><img src="assets/img/icons/delete.svg" alt="img"> </a> &nbsp; &nbsp;
       <?php } ?>
       </td>
