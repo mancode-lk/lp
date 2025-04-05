@@ -139,6 +139,7 @@
       <img src="assets/img/icons/printer.svg" alt="img">
     </a> <br> <br>
     <small>(If selecting all the orders does not work please refresh the page)</small>
+
   </div>
   <div class="col-9">
     <div class="row">
@@ -212,7 +213,7 @@
            // Check user level and add condition accordingly
            if ($u_level != 1) {
                $sql_sent_order .= " AND s_u_id='$u_id'";
-           } 
+           }
 
            // Add ORDER BY clause
            $sql_sent_order .= " ORDER BY or_up_time DESC";

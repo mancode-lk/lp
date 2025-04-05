@@ -16,7 +16,6 @@
 						</div>
 					</div>
 
-
 					<!-- /product list -->
 					<div class="card">
 						<div class="card-body">
@@ -24,11 +23,11 @@
 								<div class="col-4">
 									<input type="text"class="form-control" id="search_key" onkeyup="search_orders(this.value)" value="" placeholder="Search By Order Number,Name,Phone,Description"> <hr>
 									<label for="">From</label>
-                                    <input type="date" class="form-control" id="from_date">
-                                    <label for="">To</label>
-                                    <input type="date" class="form-control" id="to_date" onchange="selectDateRange()">
-                                    <hr>
-                                    <a href="#" onclick="deleteBulkOrders()"><img src="assets/img/icons/delete.svg" alt="img"></a>
+                  <input type="date" class="form-control" id="from_date">
+                  <label for="">To</label>
+                  <input type="date" class="form-control" id="to_date" onchange="selectDateRange()">
+                  <hr>
+                  <a href="#" onclick="deleteBulkOrders()"><img src="assets/img/icons/delete.svg" alt="img"></a>
 								</div>
 								<div class="col-8">
                                 <?php if(isset($_SESSION['page_id_sel'])){

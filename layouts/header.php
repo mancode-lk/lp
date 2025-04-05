@@ -10,6 +10,8 @@ if(!isset($_SESSION['logged'])){
 }
 
 
+$usernameSystem =getDataBack($conn,'tbl_users','u_id',$u_id,'u_name');
+
 ?>
 
 
@@ -154,9 +156,7 @@ if(!isset($_SESSION['logged'])){
           <div class="profileset">
             <span class="status online"></span></span>
             <div class="profilesets">
-              <!-- <h6>John Doe</h6> -->
-
-              <h5>name</h5>
+              <h5 style="background:#000;color:#f5f5f5;padding:5px;border-radius:10px;display:inline;margin-bottom:10px;"><img src="assets/img/icons/user.svg" style="display:inline;width:15px;"   alt="img"> <?= ucfirst($usernameSystem) ?></h5>
             </div>
           </div>
           <hr class="m-0">

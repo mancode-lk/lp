@@ -22,11 +22,13 @@ $u_level = $_SESSION['u_level'];
  	$fail_to_del =0; $return =0;
 
  	if(isset($_REQUEST['from_date'])){
- 		$sql_orders = "SELECT * FROM tbl_orders WHERE s_u_id='$u_id' AND or_date BETWEEN '$from_date' AND '$to_date'";
+ 		$sql_orders = "SELECT * FROM tbl_orders WHERE s_u_id='$u_id' AND or_st_date BETWEEN '$from_date' AND '$to_date'";
  	}
  	else {
  	 $sql_orders = "SELECT * FROM tbl_orders WHERE s_u_id='$u_id'";
  	}
+
+
 
 
 
