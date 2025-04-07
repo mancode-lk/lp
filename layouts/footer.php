@@ -23,9 +23,6 @@
 <!-- Slimscroll JS -->
 <script src="assets/js/jquery.slimscroll.min.js"></script>
 
-<!-- Select2 JS -->
-<script src="assets/plugins/select2/js/select2.min.js"></script>
-<script src="assets/plugins/select2/js/custom-select.js"></script>
 
 <!-- Datatable JS -->
 <script src="assets/js/jquery.dataTables.min.js"></script>
@@ -53,5 +50,5 @@
 <script src="assets/plugins/apexchart/apexcharts.min.js"></script>
 <script src="assets/plugins/apexchart/chart-data.js"></script>
 
-<script src="assets/js/script.js"></script>
-<script src="assets/js/custom.js" charset="utf-8"></script>
+<script src="assets/js/script.js?v=0.01"></script>
+<script src="assets/js/custom.js?v=0.01" charset="utf-8"></script>
