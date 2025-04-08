@@ -448,7 +448,7 @@
 					f_date:from_date,
                     t_date:to_date
 				});
-				location.reload();
+				$('#filterModal').modal('hide');
 			}
 			// selectDate End
 			window.addEventListener('load', function() {
