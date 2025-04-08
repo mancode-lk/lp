@@ -7,7 +7,15 @@
            <!-- Sidebar -->
 			<?php include './layouts/sidebar.php'; ?>
 			<!-- /Sidebar -->
-
+			<button
+			  type="button"
+			  class="btn btn-primary"
+			  style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;"
+			  data-bs-toggle="modal"
+			  data-bs-target="#filterModal"
+			>
+			  Filter
+			</button>
 			<div class="page-wrapper">
 				<div class="content">
 					<div class="page-header">
@@ -19,128 +27,222 @@
 					<!-- /product list -->
 					<div class="card">
 						<div class="card-body">
-							<div class="row">
-								<div class="col-4">
-									<input type="text"class="form-control" id="search_key" onkeyup="" value="" placeholder="Search By Order Number,Name,Phone,Description"> <br>
-									<button type="button" class="btn btn-warning btn-sm" name="button" onclick="search_orders()">Search</button>
-									<hr>
-                                    <form action="backend/sel_page.php" method="post">
-                                        <input type="hidden" name="back_link" value="2" id="">
-                                    <div class="form-group">
-                                        <select name="page_id" id="" class="form-control" required>
-                                            <option value="">Select Section</option>
-                                            <option value="0">Remove Selected Section</option>
-                                            <?php
-									      $sql_pages ="SELECT * FROM tbl_pages";
-									      $rs_pages = $conn->query($sql_pages);
+							<!-- Filter Modal -->
+<div
+  class="modal fade"
+  id="filterModal"
+  tabindex="-1"
+  aria-labelledby="filterModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
 
-									      if($rs_pages->num_rows > 0){
-									        while($row_pages = $rs_pages->fetch_assoc()){
-									     ?>
-                                                <option value="<?= $row_pages['page_id'] ?>"><?= $row_pages['page_name'] ?></option>
-                                         <?php } } ?>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm">Select Section</button>
-                                    </form>
-                                    <hr>
-                                    <form action="backend/sel_item.php" method="post">
-                                        <input type="hidden" name="back_link" value="0" id="">
-                                    <div class="form-group">
-                                        <select name="item_id" id="" class="form-control" required>
-                                            <option value="">Select Subject</option>
-                                            <option value="0">Remove Selected Subject</option>
-                                            <?php
-									      $sql_pages ="SELECT * FROM tbl_items";
-									      $rs_pages = $conn->query($sql_pages);
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="filterModalLabel">Filters</h5>
+        <button style="background:#000;"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >X</button>
+      </div>
 
-									      if($rs_pages->num_rows > 0){
-									        while($row_pages = $rs_pages->fetch_assoc()){
-									     ?>
-                                                <option value="<?= $row_pages['item_name'] ?>"><?= $row_pages['item_name'] ?></option>
-                                         <?php } } ?>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-warning btn-sm">Select Subject</button>
-                                    </form> <br>
-																		<?php
-																				if(isset($_SESSION['item_id'])){
-																				$item_name = $_SESSION['item_id'];
-																				$i_id=getDataBack($conn,'tbl_items','item_name',$item_name,'item_id');
-																			?>
-																			<form action="backend/sel_sub_item.php" method="post">
-	                                        <input type="hidden" name="back_link" value="0" id="">
-	                                    <div class="form-group">
-	                                        <select name="sub_item_id" id="" class="form-control" required>
-	                                            <option value="">Select Grade</option>
-	                                            <option value="0">Remove Grade</option>
-	                                            <?php
-																					      $sql_pages ="SELECT * FROM tbl_sub_items WHERE item_id='$i_id'";
-																					      $rs_pages = $conn->query($sql_pages);
+      <!-- Modal Body: All Your Filter Controls -->
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
 
-																					      if($rs_pages->num_rows > 0){
-																					        while($row_pages = $rs_pages->fetch_assoc()){
-																					     ?>
-	                                                <option value="<?= $row_pages['sub_name'] ?>"><?= $row_pages['sub_name'] ?></option>
-	                                         <?php } } ?>
-	                                        </select>
-	                                    </div>
-	                                    <button type="submit" class="btn btn-success btn-sm">Select Grade</button>
-																		</form> <br>
-																		<?php } ?>
-								</div>
-								<div class="col-8">
-									<div class="row">
-										<div class="col-6">
-											<select class="form-control" onchange="setStatus(this.value)" name="">
-												<option value="" disabled selected>Select Status</option>
-												<option value="1">Confirmed</option>
-												<option value="2">Canceled</option>
-												<option value="3">No Answer</option>
-												<option value="4">Phone Off</option>
-												<option value="5">Call Back</option>
-												<option value="6">Wrong Number</option>
-											</select> <br>
-                                            From
-											<input type="date" class="form-control" id="from_date" value="">
-                                            <br>
-                                            To
-                                            <input type="date" class="form-control" id="to_date" onchange="selectDate()" value="">
-										<br>
-										 <hr>
-										 <label for="">Filter By Delivery Method</label>
-										 <select class="form-control" onchange="setDM(this.value)" name="">
-											 <option value="" disabled selected>Select Method</option>
-											 <option value="0">Post Office</option>
-											 <option value="1">Self Delivery</option>
-										 </select>
-                                        </div>
-										<div class="col-6">
-                                            <?php if(isset($_SESSION['page_id_sel'])){
-                                                    $page_id = $_SESSION['page_id_sel'];
+            <!-- Left Column: Search, Section/Subject selection -->
+            <div class="col-12 col-md-6">
 
-                                                    $pageName = getDataBack($conn,'tbl_pages','page_id',$page_id,'page_name');
-                                                ?>
-                                                    <h6> Selected Page <span style="color:#b247ff;"><?= $pageName ?></span> </h6> <hr>
-                                                <?php } ?>
+              <!-- Search Section -->
+              <div class="mb-3">
+                <label for="search_key" class="form-label">Search Orders</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="search_key"
+                    placeholder="Search by Order #, Name, Phone, etc."
+                    onkeyup=""
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-warning"
+                    onclick="search_orders()"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
 
-																								<?php if(isset($_SESSION['sub_item_id'])){
-		                                                    $sub_item = $_SESSION['sub_item_id'];
-		                                                ?>
-		                                                    <h6> Selected sub item <span style="color:#1c59ff;"><?= $sub_item ?></span> </h6> <hr>
-		                                                <?php } ?>
+              <hr>
 
-                                                <?php if(isset($_SESSION['item_id'])){
-                                                    $item_id = $_SESSION['item_id'];
-                                                ?>
-                                                    <h6> Selected Item <span style="color:#b247ff;"><?= $item_id ?></span> </h6> <hr>
-                                                <?php } ?>
-											<h3>Total Orders: <span style="color:orange;" id="Total_Orders">   </span>  </h3>
-											<h3 id="status_text" style="color:orange;"></h3>
-										</div>
-									</div>
-								</div>
-							</div>
+              <!-- Select Section -->
+              <form action="backend/sel_page.php" method="post" class="mb-3">
+                <input type="hidden" name="back_link" value="2">
+                <label for="page_id" class="form-label">Select Section</label>
+                <select name="page_id" id="page_id" class="form-control" required>
+                  <option value="">Select Section</option>
+                  <option value="0">Remove Selected Section</option>
+                  <?php
+                    $sql_pages ="SELECT * FROM tbl_pages";
+                    $rs_pages = $conn->query($sql_pages);
+                    if($rs_pages->num_rows > 0){
+                      while($row_pages = $rs_pages->fetch_assoc()){
+                  ?>
+                    <option value="<?= $row_pages['page_id'] ?>">
+                      <?= $row_pages['page_name'] ?>
+                    </option>
+                  <?php } } ?>
+                </select>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-sm mt-2 w-100"
+                >
+                  Select Section
+                </button>
+              </form>
+
+              <hr>
+
+              <!-- Select Subject -->
+              <form action="backend/sel_item.php" method="post" class="mb-3">
+                <input type="hidden" name="back_link" value="0">
+                <label for="item_id" class="form-label">Select Subject</label>
+                <select name="item_id" id="item_id" class="form-control" required>
+                  <option value="">Select Subject</option>
+                  <option value="0">Remove Selected Subject</option>
+                  <?php
+                    $sql_pages ="SELECT * FROM tbl_items";
+                    $rs_pages = $conn->query($sql_pages);
+                    if($rs_pages->num_rows > 0){
+                      while($row_pages = $rs_pages->fetch_assoc()){
+                  ?>
+                    <option value="<?= $row_pages['item_name'] ?>">
+                      <?= $row_pages['item_name'] ?>
+                    </option>
+                  <?php } } ?>
+                </select>
+                <button
+                  type="submit"
+                  class="btn btn-warning btn-sm mt-2 w-100"
+                >
+                  Select Subject
+                </button>
+              </form>
+
+              <!-- If an item is selected, show Grade selection -->
+              <?php
+                if(isset($_SESSION['item_id'])){
+                  $item_name = $_SESSION['item_id'];
+                  $i_id=getDataBack($conn,'tbl_items','item_name',$item_name,'item_id');
+              ?>
+                <form
+                  action="backend/sel_sub_item.php"
+                  method="post"
+                  class="mb-3"
+                >
+                  <input type="hidden" name="back_link" value="0">
+                  <label for="sub_item_id" class="form-label">Select Grade</label>
+                  <select name="sub_item_id" id="sub_item_id" class="form-control" required>
+                    <option value="">Select Grade</option>
+                    <option value="0">Remove Grade</option>
+                    <?php
+                      $sql_pages ="SELECT * FROM tbl_sub_items WHERE item_id='$i_id'";
+                      $rs_pages = $conn->query($sql_pages);
+                      if($rs_pages->num_rows > 0){
+                        while($row_pages = $rs_pages->fetch_assoc()){
+                    ?>
+                      <option value="<?= $row_pages['sub_name'] ?>">
+                        <?= $row_pages['sub_name'] ?>
+                      </option>
+                    <?php } } ?>
+                  </select>
+                  <button
+                    type="submit"
+                    class="btn btn-success btn-sm mt-2 w-100"
+                  >
+                    Select Grade
+                  </button>
+                </form>
+              <?php } ?>
+
+            </div>
+            <!-- End Left Column -->
+
+            <!-- Right Column: Status, Dates, Delivery Method -->
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="statusSelect" class="form-label">
+                  Order Status
+                </label>
+                <select
+                  class="form-control"
+                  id="statusSelect"
+                  onchange="setStatus(this.value)"
+                >
+                  <option value="" disabled selected>Choose...</option>
+                  <option value="1">Confirmed</option>
+                  <option value="2">Canceled</option>
+                  <option value="3">No Answer</option>
+                  <option value="4">Phone Off</option>
+                  <option value="5">Call Back</option>
+                  <option value="6">Wrong Number</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="from_date" class="form-label">From Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="from_date"
+                  value=""
+                >
+              </div>
+
+              <div class="mb-3">
+                <label for="to_date" class="form-label">To Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="to_date"
+                  onchange="selectDate()"
+                  value=""
+                >
+              </div>
+
+              <hr>
+
+              <div class="mb-3">
+                <label for="deliveryMethod" class="form-label">
+                  Delivery Method
+                </label>
+                <select
+                  class="form-control"
+                  id="deliveryMethod"
+                  onchange="setDM(this.value)"
+                >
+                  <option value="" disabled selected>Choose...</option>
+                  <option value="0">Post Office</option>
+                  <option value="1">Self Delivery</option>
+                </select>
+              </div>
+            </div>
+            <!-- End Right Column -->
+
+          </div>
+        </div>
+      </div>
+      <!-- End Modal Body -->
+
+    </div>
+  </div>
+</div>
+
 							<div id="loader" style="display:none;">Loading...</div>
 							<div id="all_orders" class="table-responsive">
 

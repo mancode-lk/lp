@@ -122,7 +122,7 @@
         }
 ?>
 <div class="row">
-  <div class="col-3">
+  <div class="col-12 col-lg-3">
 
     &nbsp;&nbsp;&nbsp;&nbsp;
     <a onclick="markDeliveryMethod()" class="btn btn-primary btn-sm " data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="MarkAsPostOffice/SelfCourier" aria-label="excel">
@@ -138,9 +138,12 @@
     <a href="#" onclick="print_bill_test()" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="print_test" aria-label="excel">
       <img src="assets/img/icons/printer.svg" alt="img">
     </a> <br> <br>
-    <small>(If selecting all the orders does not work please refresh the page)</small>
+
 
   </div>
+<div class="col-12">
+        <h5 style="color:#18246e;font-weight:bold;"> Total Count of <span id="status_text"></span> : <span id="Total_Orders"></span> </h4> <br><br>
+</div>
   <div class="col-9">
     <div class="row">
       <div class="col-6">
