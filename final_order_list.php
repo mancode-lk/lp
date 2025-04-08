@@ -141,7 +141,7 @@
 									</div>
 								</div>
 							</div>
-
+							<div id="loader" style="display:none;">Loading...</div>
 							<div id="all_orders" class="table-responsive">
 
 							</div>
@@ -401,10 +401,14 @@
 			}
 
 			function setStatus(or_st) {
+    $('#loader').show(); // Show loader
     $('#all_orders').load('ajax_pages/marked_orders.php', {
         or_status: or_st
+    }, function() {
+        $('#loader').hide(); // Hide loader after load
     });
 }
+
 
 			function load_order_details(oid){
 				$('#track_order').modal('show');
