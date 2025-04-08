@@ -400,11 +400,11 @@
 				});
 			}
 
-			function setStatus(or_st){
-		$('#all_orders').load('ajax_pages/marked_orders.php', {
-			or_status: or_st
-		}
-	}
+			function setStatus(or_st) {
+    $('#all_orders').load('ajax_pages/marked_orders.php', {
+        or_status: or_st
+    });
+}
 
 			function load_order_details(oid){
 				$('#track_order').modal('show');
