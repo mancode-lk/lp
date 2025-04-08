@@ -402,10 +402,12 @@
 
 			function setStatus(or_st) {
     $('#loader').show(); // Show loader
+		  $('#all_orders').hide();
     $('#all_orders').load('ajax_pages/marked_orders.php', {
         or_status: or_st
     }, function() {
         $('#loader').hide(); // Hide loader after load
+				 $('#all_orders').show();
     });
 }
 
