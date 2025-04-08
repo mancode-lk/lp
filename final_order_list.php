@@ -511,6 +511,8 @@
         $('#loader').hide(); // Hide loader after load
 				 $('#all_orders').show();
     });
+
+		$('#filterModal').modal('hide');
 }
 
 
